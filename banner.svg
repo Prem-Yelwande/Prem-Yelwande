@@ -4,21 +4,25 @@
       <stop offset="0" stop-color="#070d1a"/>
       <stop offset="1" stop-color="#0f3a40"/>
     </linearGradient>
+    <linearGradient id="bodyGrad" gradientUnits="userSpaceOnUse" x1="0" y1="-32" x2="0" y2="20">
+      <stop offset="0" stop-color="#7f1d1d"/>
+      <stop offset="0.55" stop-color="#b42323"/>
+      <stop offset="1" stop-color="#4f5f4d"/>
+    </linearGradient>
     <clipPath id="clip"><rect width="900" height="300" rx="14"/></clipPath>
 
     <g id="wing">
-      <path d="M0,0 L14,-62 L-28,-112 L-112,-94 Q-92,-72 -120,-44 Q-98,-34 -108,0 Q-80,-14 -58,8 Q-28,-6 0,0 Z"/>
-      <path d="M-28,-112 L-112,-94 M-28,-112 L-120,-44 M-28,-112 L-108,0 M-28,-112 L-58,8" fill="none" stroke="#042f2e" stroke-opacity=".5" stroke-width="1.5"/>
-      <path d="M0,0 L14,-62 L-28,-112" fill="none" stroke="#0f766e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M0,0 L38,-60 L-4,-108 L-92,-92 Q-72,-70 -98,-44 Q-76,-34 -86,0 Q-60,-14 -40,8 Q-16,-6 0,0 Z"/>
+      <path d="M-4,-108 L-92,-92 M-4,-108 L-98,-44 M-4,-108 L-86,0 M-4,-108 L-40,8" fill="none" stroke="#3b0a0a" stroke-opacity=".45" stroke-width="1.5"/>
+      <path d="M0,0 L38,-60 L-4,-108" fill="none" stroke="#5c0f0f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
-    <g id="cloudRow" fill="#99f6e4" fill-opacity=".07">
+    <g id="cloudRow" fill="#99f6e4" fill-opacity=".08">
       <ellipse cx="120" cy="50" rx="70" ry="14"/>
-      <ellipse cx="330" cy="90" rx="90" ry="16"/>
+      <ellipse cx="330" cy="95" rx="90" ry="16"/>
       <ellipse cx="560" cy="40" rx="60" ry="12"/>
-      <ellipse cx="760" cy="75" rx="80" ry="15"/>
+      <ellipse cx="760" cy="80" rx="80" ry="15"/>
     </g>
-
     <path id="hillsBack" d="M0,235 C90,205 170,200 260,228 C330,250 390,215 460,205 C550,192 620,240 700,232 C780,224 840,210 900,235 L900,300 L0,300 Z"/>
     <path id="hillsFront" d="M0,270 C80,255 150,250 230,265 C310,280 380,258 450,255 C540,252 610,278 690,272 C770,266 840,252 900,270 L900,300 L0,300 Z"/>
   </defs>
@@ -34,23 +38,21 @@
       <circle cx="840" cy="28" r="1.3"><animate attributeName="opacity" values="1;0.3;1" dur="2.8s" repeatCount="indefinite"/></circle>
     </g>
 
-    <!-- clouds -->
+    <!-- scenery scrolls right, so the dragon flies left -->
     <g>
-      <animateTransform attributeName="transform" type="translate" from="0 0" to="-900 0" dur="50s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="900 0" dur="50s" repeatCount="indefinite"/>
       <use href="#cloudRow"/>
-      <use href="#cloudRow" x="900"/>
+      <use href="#cloudRow" x="-900"/>
     </g>
-
-    <!-- hills -->
     <g fill="#0c2a30">
-      <animateTransform attributeName="transform" type="translate" from="0 0" to="-900 0" dur="24s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="900 0" dur="26s" repeatCount="indefinite"/>
       <use href="#hillsBack"/>
-      <use href="#hillsBack" x="900"/>
+      <use href="#hillsBack" x="-900"/>
     </g>
     <g fill="#07161c">
-      <animateTransform attributeName="transform" type="translate" from="0 0" to="-900 0" dur="12s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="900 0" dur="13s" repeatCount="indefinite"/>
       <use href="#hillsFront"/>
-      <use href="#hillsFront" x="900"/>
+      <use href="#hillsFront" x="-900"/>
     </g>
 
     <!-- text -->
@@ -61,67 +63,60 @@
     </g>
 
     <!-- dragon -->
-    <g transform="translate(690,100)">
+    <g transform="translate(670,170)">
       <g>
-        <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" repeatCount="indefinite"/>
 
         <!-- far wing -->
-        <g transform="translate(2,-26)">
+        <g transform="translate(-24,-16) scale(-1,1)">
           <g>
             <animateTransform attributeName="transform" type="rotate" values="12;-58;12" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" begin="-0.12s" repeatCount="indefinite"/>
-            <use href="#wing" fill="#0f766e"/>
+            <use href="#wing" fill="#7f1d1d"/>
           </g>
         </g>
 
         <!-- far legs -->
-        <g fill="#0f766e" transform="translate(-8,-2)">
-          <path d="M28,14 C36,26 34,38 22,46 L30,50 L42,42 C48,32 48,22 44,10 Z"/>
-          <path d="M-34,14 C-28,28 -30,40 -42,48 L-34,52 L-22,44 C-16,34 -16,24 -20,10 Z"/>
+        <g fill="#6b1515">
+          <path d="M-56,10 C-50,22 -52,30 -62,36 L-54,38 L-44,30 C-38,22 -40,14 -42,8 Z"/>
+          <path d="M8,10 C14,22 12,30 2,36 L10,38 L20,30 C26,22 24,14 22,8 Z"/>
         </g>
 
-        <!-- tail -->
-        <path fill="#0d9488">
+        <!-- body: undulating tail -->
+        <path fill="url(#bodyGrad)">
           <animate attributeName="d" dur="1.6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"
-            values="M-50,-13 C-90,-10 -120,2 -150,-8 C-170,-14 -190,-26 -205,-34 C-192,-18 -178,2 -158,4 C-125,12 -90,18 -50,16 Z;
-                    M-50,-13 C-90,-18 -120,-14 -150,0 C-170,10 -190,22 -205,30 C-190,34 -172,24 -158,18 C-125,12 -90,18 -50,16 Z;
-                    M-50,-13 C-90,-10 -120,2 -150,-8 C-170,-14 -190,-26 -205,-34 C-192,-18 -178,2 -158,4 C-125,12 -90,18 -50,16 Z"/>
+            values="M-130,6 L-126,-8 C-112,-12 -100,-16 -90,-18 C-60,-30 -10,-28 30,-20 C80,-12 120,-18 170,-26 L184,-30 L172,-22 C124,-8 84,0 36,8 C-6,16 -50,18 -86,8 C-106,6 -120,12 -130,12 Z;
+                    M-130,6 L-126,-8 C-112,-14 -100,-18 -90,-22 C-60,-34 -10,-32 30,-24 C80,-10 120,-4 170,-4 L186,0 L172,2 C124,6 84,10 36,12 C-6,18 -50,16 -86,4 C-106,2 -120,10 -130,12 Z;
+                    M-130,6 L-126,-8 C-112,-12 -100,-16 -90,-18 C-60,-30 -10,-28 30,-20 C80,-12 120,-18 170,-26 L184,-30 L172,-22 C124,-8 84,0 36,8 C-6,16 -50,18 -86,8 C-106,6 -120,12 -130,12 Z"/>
         </path>
 
-        <!-- back spines -->
-        <path fill="#0f766e" d="M-52,-22 L-46,-36 L-40,-26 L-32,-40 L-24,-29 L-14,-43 L-6,-31 L4,-44 L12,-32 L22,-43 L30,-30 L40,-34 L44,-24 Z"/>
-
-        <!-- body + belly -->
-        <ellipse cx="0" cy="0" rx="68" ry="28" fill="#14b8a6"/>
-        <path d="M-60,12 C-30,34 30,34 62,10 C30,20 -30,20 -60,12 Z" fill="#99f6e4" opacity=".6"/>
+        <!-- back spikes -->
+        <path fill="#470e07" d="M-106,-13 L-92,-28 L-90,-13 Z M-86,-20 L-72,-35 L-70,-20 Z M-66,-23 L-52,-38 L-50,-23 Z M-46,-24 L-32,-39 L-30,-24 Z M-26,-23 L-12,-38 L-10,-23 Z M-6,-21 L8,-36 L10,-21 Z M14,-18 L28,-33 L30,-18 Z M34,-15 L48,-30 L50,-15 Z M54,-13 L68,-28 L70,-13 Z"/>
 
         <!-- near legs -->
-        <g fill="#0d9488">
+        <g fill="#9b1c1c">
           <g>
-            <animateTransform attributeName="transform" type="rotate" values="6 36 14;-6 36 14;6 36 14" dur="1s" repeatCount="indefinite"/>
-            <path d="M28,14 C36,26 34,38 22,46 L30,50 L42,42 C48,32 48,22 44,10 Z"/>
+            <animateTransform attributeName="transform" type="rotate" values="6 -50 8;-6 -50 8;6 -50 8" dur="1s" repeatCount="indefinite"/>
+            <path d="M-56,10 C-50,22 -52,30 -62,36 L-54,38 L-44,30 C-38,22 -40,14 -42,8 Z"/>
           </g>
           <g>
-            <animateTransform attributeName="transform" type="rotate" values="-6 -26 14;6 -26 14;-6 -26 14" dur="1s" repeatCount="indefinite"/>
-            <path d="M-34,14 C-28,28 -30,40 -42,48 L-34,52 L-22,44 C-16,34 -16,24 -20,10 Z"/>
+            <animateTransform attributeName="transform" type="rotate" values="-6 14 8;6 14 8;-6 14 8" dur="1s" repeatCount="indefinite"/>
+            <path d="M8,10 C14,22 12,30 2,36 L10,38 L20,30 C26,22 24,14 22,8 Z"/>
           </g>
         </g>
 
-        <!-- neck + head -->
+        <!-- head -->
         <g>
-          <animateTransform attributeName="transform" type="rotate" values="-4 50 -8;4 50 -8;-4 50 -8" dur="1s" repeatCount="indefinite"/>
-          <path d="M50,-8 C78,-10 92,-30 100,-50" fill="none" stroke="#14b8a6" stroke-width="22" stroke-linecap="round"/>
-          <path d="M94,-64 C84,-74 72,-80 62,-82 C74,-72 82,-62 88,-56 Z" fill="#99f6e4" opacity=".9"/>
-          <path d="M100,-66 C94,-78 88,-86 80,-92 C90,-82 96,-74 100,-62 Z" fill="#99f6e4" opacity=".9"/>
-          <path d="M90,-62 C102,-70 124,-66 144,-54 C150,-51 152,-47 148,-44 L128,-40 C116,-36 100,-38 92,-42 Z" fill="#14b8a6"/>
-          <circle cx="120" cy="-56" r="3.6" fill="#f0fdfa"/>
-          <circle cx="121" cy="-56" r="1.7" fill="#042f2e"/>
-          <path d="M113,-62 L125,-59" stroke="#042f2e" stroke-width="1.6" stroke-linecap="round"/>
-          <circle cx="142" cy="-52" r="1.2" fill="#042f2e"/>
-          <path d="M128,-42 Q138,-39 146,-45" fill="none" stroke="#042f2e" stroke-width="1.4" stroke-linecap="round"/>
+          <animateTransform attributeName="transform" type="rotate" values="-3 -128 0;3 -128 0;-3 -128 0" dur="1s" repeatCount="indefinite"/>
+          <path d="M-128,-8 C-140,-14 -156,-12 -172,-2 L-176,2 C-172,6 -160,8 -148,8 C-138,10 -130,6 -126,2 Z" fill="#a31f1f"/>
+          <path d="M-130,-10 L-110,-26 L-122,-6 Z" fill="#4b3a2b"/>
+          <path d="M-126,-2 L-112,-12 L-120,2 Z" fill="#4b3a2b"/>
+          <path d="M-146,-2 L-136,-6 L-134,-3 C-138,0 -142,0 -146,-2 Z" fill="#f8fafc"/>
+          <circle cx="-139" cy="-3.5" r="1.3" fill="#1c1917"/>
+          <path d="M-174,2 Q-160,5 -148,3" fill="none" stroke="#3b0a0a" stroke-width="1.2" stroke-linecap="round"/>
 
-          <!-- flame -->
-          <g transform="translate(150,-46)">
-            <path d="M0,0 C14,-8 28,-6 42,2 C28,10 14,8 0,0 Z" fill="#5eead4">
+          <!-- ember puff -->
+          <g transform="translate(-176,0)">
+            <path d="M0,0 C-14,-8 -28,-6 -42,2 C-28,10 -14,8 0,0 Z" fill="#fb923c">
               <animate attributeName="opacity" values="0;0;1;0" keyTimes="0;.55;.72;1" dur="3s" repeatCount="indefinite"/>
               <animateTransform attributeName="transform" type="scale" values="0.1 0.5;0.1 0.5;1 1;1.3 1.1" keyTimes="0;.55;.72;1" dur="3s" repeatCount="indefinite"/>
             </path>
@@ -129,10 +124,10 @@
         </g>
 
         <!-- near wing -->
-        <g transform="translate(10,-24)">
+        <g transform="translate(-34,-14) scale(-1,1)">
           <g>
             <animateTransform attributeName="transform" type="rotate" values="18;-52;18" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" repeatCount="indefinite"/>
-            <use href="#wing" fill="#2dd4bf" fill-opacity=".9"/>
+            <use href="#wing" fill="#b4382a" fill-opacity=".92"/>
           </g>
         </g>
       </g>
