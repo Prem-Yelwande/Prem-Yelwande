@@ -45,8 +45,6 @@ Working with Sentinel (Copernicus) satellite data to classify hanging glaciers u
 ## Projects
 
 - **Autonomous AI Software Engineer** – A LangGraph pipeline where planner, architect and coder agents turn a task into working code. Small edits skip straight to the coder agent to save API calls. [Live Demo](#)
-- **Multi-Agent AI Research System** – Agents that search, scrape, synthesize and then critique their own report, so you don't have to. [Live Demo](#)
-- **Mental Health Score Predictor** – A Random Forest model with 87% accuracy, served through FastAPI and validated with Pydantic. [Live Demo](#)
 
 ## Contact
 
