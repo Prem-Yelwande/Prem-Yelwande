@@ -12,7 +12,7 @@ Third-year B.Tech IT student at VIT Mumbai, specializing in AI/ML. I build backe
 
 Currently a research intern at CSRE, IIT Bombay, using satellite data to study Himalayan glacier hazards. Yes, it's a big jump from "make the button red."
 
-Looking for a Python/backend internship.
+
 
 ## Tech
 
