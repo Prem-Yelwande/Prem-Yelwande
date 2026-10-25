@@ -8,6 +8,11 @@ Third-year B.Tech IT student at VIT Mumbai, specializing in AI/ML. I build backe
 
 Currently a research intern at CSRE, IIT Bombay, using satellite data to study Himalayan glacier hazards. Yes, it's a big jump from "make the button red."
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Prem-Yelwande/Prem-Yelwande/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Prem-Yelwande/Prem-Yelwande/output/snake.svg" />
+  <img alt="snake eating my commits" src="https://raw.githubusercontent.com/Prem-Yelwande/Prem-Yelwande/output/snake.svg" />
+</picture>
 
 
 ## Tech
