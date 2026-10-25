@@ -1,8 +1,4 @@
-<h1 align="center">Prem Yelwande</h1>
-
-<p align="center"><b>AI/ML Engineer · Research Intern @ CSRE, IIT Bombay</b></p>
-
-<p align="center"><i>Teaching agents to use tools, and myself to use fewer.</i></p>
+<p align="center"><img src="banner.svg" alt="Prem Yelwande" width="100%" /></p>
 
 ---
 
