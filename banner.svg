@@ -1,65 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="900" height="220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1220"/>
-      <stop offset="1" stop-color="#0f2a33"/>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070d1a"/>
+      <stop offset="1" stop-color="#0f3a40"/>
     </linearGradient>
+    <clipPath id="clip"><rect width="900" height="300" rx="14"/></clipPath>
+
+    <g id="wing">
+      <path d="M0,0 L14,-62 L-28,-112 L-112,-94 Q-92,-72 -120,-44 Q-98,-34 -108,0 Q-80,-14 -58,8 Q-28,-6 0,0 Z"/>
+      <path d="M-28,-112 L-112,-94 M-28,-112 L-120,-44 M-28,-112 L-108,0 M-28,-112 L-58,8" fill="none" stroke="#042f2e" stroke-opacity=".5" stroke-width="1.5"/>
+      <path d="M0,0 L14,-62 L-28,-112" fill="none" stroke="#0f766e" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <g id="cloudRow" fill="#99f6e4" fill-opacity=".07">
+      <ellipse cx="120" cy="50" rx="70" ry="14"/>
+      <ellipse cx="330" cy="90" rx="90" ry="16"/>
+      <ellipse cx="560" cy="40" rx="60" ry="12"/>
+      <ellipse cx="760" cy="75" rx="80" ry="15"/>
+    </g>
+
+    <path id="hillsBack" d="M0,235 C90,205 170,200 260,228 C330,250 390,215 460,205 C550,192 620,240 700,232 C780,224 840,210 900,235 L900,300 L0,300 Z"/>
+    <path id="hillsFront" d="M0,270 C80,255 150,250 230,265 C310,280 380,258 450,255 C540,252 610,278 690,272 C770,266 840,252 900,270 L900,300 L0,300 Z"/>
   </defs>
 
-  <rect width="900" height="220" rx="14" fill="url(#bg)"/>
+  <g clip-path="url(#clip)">
+    <rect width="900" height="300" fill="url(#sky)"/>
 
-  <!-- twinkling stars -->
-  <g fill="#99f6e4">
-    <circle cx="120" cy="30" r="1.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/></circle>
-    <circle cx="340" cy="190" r="1.2"><animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite"/></circle>
-    <circle cx="560" cy="35" r="1.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite"/></circle>
-    <circle cx="760" cy="185" r="1.3"><animate attributeName="opacity" values="1;0.3;1" dur="2.8s" repeatCount="indefinite"/></circle>
-    <circle cx="850" cy="50" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="4.2s" repeatCount="indefinite"/></circle>
-  </g>
-
-  <!-- dragon -->
-  <g>
-    <animateMotion dur="14s" repeatCount="indefinite" rotate="auto"
-      path="M-90,150 C150,50 300,180 450,95 S750,35 990,115"/>
-
-    <!-- back wing -->
-    <path d="M-6,-2 C-16,-24 -34,-30 -44,-34 C-36,-20 -30,-12 -22,-2 Z" fill="#0d9488" opacity="0.6">
-      <animateTransform attributeName="transform" type="rotate"
-        values="10 -6 -2;-20 -6 -2;10 -6 -2" dur="0.7s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- tail -->
-    <path d="M-20,6 C-34,16 -44,4 -56,12" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round"/>
-    <!-- body -->
-    <ellipse cx="-4" cy="4" rx="18" ry="8" fill="#2dd4bf"/>
-    <!-- neck + head -->
-    <path d="M10,0 C16,-8 22,-12 28,-12 L40,-9 L31,-5 L26,-1 C20,3 14,6 10,8 Z" fill="#2dd4bf"/>
-    <!-- horn + eye -->
-    <path d="M26,-12 L22,-19" stroke="#99f6e4" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="31" cy="-8" r="1.5" fill="#0b1220"/>
-
-    <!-- front wing -->
-    <path d="M-6,-2 C-16,-24 -34,-30 -44,-34 C-36,-20 -30,-12 -22,-2 Z" fill="#5eead4">
-      <animateTransform attributeName="transform" type="rotate"
-        values="-5 -6 -2;-35 -6 -2;-5 -6 -2" dur="0.7s" repeatCount="indefinite"/>
-    </path>
-
-    <!-- tiny flame -->
+    <!-- stars -->
     <g fill="#99f6e4">
-      <ellipse cx="48" cy="-8" rx="5" ry="2.5">
-        <animate attributeName="opacity" values="0;1;0" dur="1.4s" repeatCount="indefinite"/>
-        <animate attributeName="rx" values="2;7;2" dur="1.4s" repeatCount="indefinite"/>
-      </ellipse>
-      <ellipse cx="58" cy="-8" rx="3" ry="1.5">
-        <animate attributeName="opacity" values="0;0.8;0" dur="1.4s" begin="0.3s" repeatCount="indefinite"/>
-      </ellipse>
+      <circle cx="90" cy="30" r="1.5"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="300" cy="22" r="1.2"><animate attributeName="opacity" values="1;0.2;1" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="520" cy="35" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite"/></circle>
+      <circle cx="840" cy="28" r="1.3"><animate attributeName="opacity" values="1;0.3;1" dur="2.8s" repeatCount="indefinite"/></circle>
     </g>
-  </g>
 
-  <!-- text -->
-  <g font-family="'Segoe UI', Helvetica, Arial, sans-serif">
-    <text x="60" y="108" font-size="46" font-weight="700" fill="#e6fffb">Prem Yelwande</text>
-    <text x="62" y="140" font-size="18" fill="#5eead4">AI/ML Engineer · Research Intern @ CSRE, IIT Bombay</text>
-    <text x="62" y="170" font-size="13" fill="#64748b">No dragons were harmed in the training of these models.</text>
+    <!-- clouds -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-900 0" dur="50s" repeatCount="indefinite"/>
+      <use href="#cloudRow"/>
+      <use href="#cloudRow" x="900"/>
+    </g>
+
+    <!-- hills -->
+    <g fill="#0c2a30">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-900 0" dur="24s" repeatCount="indefinite"/>
+      <use href="#hillsBack"/>
+      <use href="#hillsBack" x="900"/>
+    </g>
+    <g fill="#07161c">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-900 0" dur="12s" repeatCount="indefinite"/>
+      <use href="#hillsFront"/>
+      <use href="#hillsFront" x="900"/>
+    </g>
+
+    <!-- text -->
+    <g font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+      <text x="50" y="100" font-size="44" font-weight="700" fill="#e6fffb">Prem Yelwande</text>
+      <text x="52" y="132" font-size="16" fill="#5eead4">AI/ML Engineer · Research Intern @ CSRE, IIT Bombay</text>
+      <text x="52" y="158" font-size="12" fill="#64748b">No dragons were harmed in the training of these models.</text>
+    </g>
+
+    <!-- dragon -->
+    <g transform="translate(690,100)">
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" repeatCount="indefinite"/>
+
+        <!-- far wing -->
+        <g transform="translate(2,-26)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="12;-58;12" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" begin="-0.12s" repeatCount="indefinite"/>
+            <use href="#wing" fill="#0f766e"/>
+          </g>
+        </g>
+
+        <!-- far legs -->
+        <g fill="#0f766e" transform="translate(-8,-2)">
+          <path d="M28,14 C36,26 34,38 22,46 L30,50 L42,42 C48,32 48,22 44,10 Z"/>
+          <path d="M-34,14 C-28,28 -30,40 -42,48 L-34,52 L-22,44 C-16,34 -16,24 -20,10 Z"/>
+        </g>
+
+        <!-- tail -->
+        <path fill="#0d9488">
+          <animate attributeName="d" dur="1.6s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"
+            values="M-50,-13 C-90,-10 -120,2 -150,-8 C-170,-14 -190,-26 -205,-34 C-192,-18 -178,2 -158,4 C-125,12 -90,18 -50,16 Z;
+                    M-50,-13 C-90,-18 -120,-14 -150,0 C-170,10 -190,22 -205,30 C-190,34 -172,24 -158,18 C-125,12 -90,18 -50,16 Z;
+                    M-50,-13 C-90,-10 -120,2 -150,-8 C-170,-14 -190,-26 -205,-34 C-192,-18 -178,2 -158,4 C-125,12 -90,18 -50,16 Z"/>
+        </path>
+
+        <!-- back spines -->
+        <path fill="#0f766e" d="M-52,-22 L-46,-36 L-40,-26 L-32,-40 L-24,-29 L-14,-43 L-6,-31 L4,-44 L12,-32 L22,-43 L30,-30 L40,-34 L44,-24 Z"/>
+
+        <!-- body + belly -->
+        <ellipse cx="0" cy="0" rx="68" ry="28" fill="#14b8a6"/>
+        <path d="M-60,12 C-30,34 30,34 62,10 C30,20 -30,20 -60,12 Z" fill="#99f6e4" opacity=".6"/>
+
+        <!-- near legs -->
+        <g fill="#0d9488">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="6 36 14;-6 36 14;6 36 14" dur="1s" repeatCount="indefinite"/>
+            <path d="M28,14 C36,26 34,38 22,46 L30,50 L42,42 C48,32 48,22 44,10 Z"/>
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="-6 -26 14;6 -26 14;-6 -26 14" dur="1s" repeatCount="indefinite"/>
+            <path d="M-34,14 C-28,28 -30,40 -42,48 L-34,52 L-22,44 C-16,34 -16,24 -20,10 Z"/>
+          </g>
+        </g>
+
+        <!-- neck + head -->
+        <g>
+          <animateTransform attributeName="transform" type="rotate" values="-4 50 -8;4 50 -8;-4 50 -8" dur="1s" repeatCount="indefinite"/>
+          <path d="M50,-8 C78,-10 92,-30 100,-50" fill="none" stroke="#14b8a6" stroke-width="22" stroke-linecap="round"/>
+          <path d="M94,-64 C84,-74 72,-80 62,-82 C74,-72 82,-62 88,-56 Z" fill="#99f6e4" opacity=".9"/>
+          <path d="M100,-66 C94,-78 88,-86 80,-92 C90,-82 96,-74 100,-62 Z" fill="#99f6e4" opacity=".9"/>
+          <path d="M90,-62 C102,-70 124,-66 144,-54 C150,-51 152,-47 148,-44 L128,-40 C116,-36 100,-38 92,-42 Z" fill="#14b8a6"/>
+          <circle cx="120" cy="-56" r="3.6" fill="#f0fdfa"/>
+          <circle cx="121" cy="-56" r="1.7" fill="#042f2e"/>
+          <path d="M113,-62 L125,-59" stroke="#042f2e" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="142" cy="-52" r="1.2" fill="#042f2e"/>
+          <path d="M128,-42 Q138,-39 146,-45" fill="none" stroke="#042f2e" stroke-width="1.4" stroke-linecap="round"/>
+
+          <!-- flame -->
+          <g transform="translate(150,-46)">
+            <path d="M0,0 C14,-8 28,-6 42,2 C28,10 14,8 0,0 Z" fill="#5eead4">
+              <animate attributeName="opacity" values="0;0;1;0" keyTimes="0;.55;.72;1" dur="3s" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="scale" values="0.1 0.5;0.1 0.5;1 1;1.3 1.1" keyTimes="0;.55;.72;1" dur="3s" repeatCount="indefinite"/>
+            </path>
+          </g>
+        </g>
+
+        <!-- near wing -->
+        <g transform="translate(10,-24)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="18;-52;18" keyTimes="0;.5;1" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" dur="1s" repeatCount="indefinite"/>
+            <use href="#wing" fill="#2dd4bf" fill-opacity=".9"/>
+          </g>
+        </g>
+      </g>
+    </g>
   </g>
 </svg>
