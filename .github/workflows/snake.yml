@@ -22,6 +22,32 @@ jobs:
             dist/snake.svg?color_snake=#4A2A0A&color_dots=#F0D9B5,#FFC795,#FFA619,#D16900,#750A27
             dist/snake-dark.svg?palette=github-dark&color_snake=#FFA619
 
+      - name: Crop snake to the grid
+        run: |
+          python3 - <<'PY'
+          import re, glob
+          PAD = 4
+          for path in glob.glob("dist/*.svg"):
+              s = open(path, encoding="utf-8").read()
+              x0 = y0 = 10**9
+              x1 = y1 = -10**9
+              for tag in re.findall(r'<rect[^>]*class="c(?:\s[^"]*)?"[^>]*>', s):
+                  v = {k: re.search(r'\b%s="(-?[\d.]+)"' % k, tag) for k in ("x", "y", "width", "height")}
+                  if all(v.values()):
+                      x, y, w, h = (float(v[k].group(1)) for k in ("x", "y", "width", "height"))
+                      x0, y0, x1, y1 = min(x0, x), min(y0, y), max(x1, x + w), max(y1, y + h)
+              if x1 < x0:
+                  print("no grid cells found in", path, "- left unchanged")
+                  continue
+              vx, vy, vw, vh = x0 - PAD, y0 - PAD, x1 - x0 + 2 * PAD, y1 - y0 + 2 * PAD
+              head = re.search(r"<svg[^>]*>", s).group(0)
+              new = re.sub(r'viewBox="[^"]*"', 'viewBox="%g %g %g %g"' % (vx, vy, vw, vh), head)
+              new = re.sub(r'\bwidth="[^"]*"', 'width="%g"' % vw, new)
+              new = re.sub(r'\bheight="[^"]*"', 'height="%g"' % vh, new)
+              open(path, "w", encoding="utf-8").write(s.replace(head, new, 1))
+              print("cropped", path, "->", vx, vy, vw, vh)
+          PY
+
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
