@@ -1,4 +1,4 @@
-<p align="center"><img src="banner.svg" alt="Prem Yelwande" width="100%" /></p>
+   <p align="center"><img src="banner.gif" alt="Prem Yelwande" width="100%" /></p>
 
 ---
 
